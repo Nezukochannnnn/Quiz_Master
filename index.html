@@ -3,49 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Quiz - Hackathon Challenge</title>
+    <title>Quiz Master - Advanced Tech Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- Start Screen -->
-        <div id="startScreen" class="screen active">
-            <div class="start-content">
-                <h1>Tech Quiz Challenge</h1>
-                <p class="subtitle">Test your tech knowledge in 10 questions</p>
-                <div class="quiz-info">
-                    <div class="info-item">
-                        <span class="info-label">Questions</span>
-                        <span class="info-value">10</span>
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <div class="home-content">
+                <div class="logo">
+                    <span class="logo-icon">🎯</span>
+                    <h1>Quiz Master</h1>
+                </div>
+                <p class="tagline">Master Your Tech Knowledge</p>
+                
+                <div class="stats-overview">
+                    <div class="stat">
+                        <span class="stat-value" id="totalQuestions">25</span>
+                        <span class="stat-label">Questions</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Time per Question</span>
-                        <span class="info-value">45 sec</span>
+                    <div class="stat">
+                        <span class="stat-value" id="totalCategories">5</span>
+                        <span class="stat-label">Categories</span>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">Topic</span>
-                        <span class="info-value">General Tech</span>
+                    <div class="stat">
+                        <span class="stat-value" id="bestScore">-</span>
+                        <span class="stat-label">Best Score</span>
                     </div>
                 </div>
-                <button id="beginBtn" class="btn btn-primary">Begin Quiz</button>
+
+                <button id="startBtn" class="btn btn-primary btn-lg">Start Quiz</button>
+                <button id="statsBtn" class="btn btn-secondary">View Stats</button>
+            </div>
+        </div>
+
+        <!-- Category Selection Screen -->
+        <div id="categoryScreen" class="screen">
+            <div class="category-content">
+                <h1>Select Categories</h1>
+                <p class="subtitle">Choose which topics to include in your quiz</p>
+                
+                <div id="categoryGrid" class="category-grid">
+                    <!-- Categories will be inserted here -->
+                </div>
+
+                <div class="category-actions">
+                    <button id="categoryBackBtn" class="btn btn-secondary">Back</button>
+                    <button id="proceedBtn" class="btn btn-primary" disabled>Proceed</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mode Selection Screen -->
+        <div id="modeScreen" class="screen">
+            <div class="mode-content">
+                <h1>Choose Quiz Mode</h1>
+                <p class="subtitle">Select your challenge level</p>
+                
+                <div class="mode-cards">
+                    <div class="mode-card" data-mode="practice">
+                        <div class="mode-icon">🎓</div>
+                        <h3>Practice Mode</h3>
+                        <p>No time pressure. Learn at your own pace with instant feedback.</p>
+                        <button class="btn btn-mode">Start Practice</button>
+                    </div>
+
+                    <div class="mode-card" data-mode="timed">
+                        <div class="mode-icon">⏱️</div>
+                        <h3>Timed Mode</h3>
+                        <p>Complete all questions within a time limit. Race against the clock!</p>
+                        <button class="btn btn-mode">Start Timed</button>
+                    </div>
+
+                    <div class="mode-card" data-mode="survival">
+                        <div class="mode-icon">💪</div>
+                        <h3>Survival Mode</h3>
+                        <p>Get 3 wrong answers and it's game over. One mistake too many!</p>
+                        <button class="btn btn-mode">Start Survival</button>
+                    </div>
+                </div>
+
+                <button id="modeBackBtn" class="btn btn-secondary btn-full">Back to Categories</button>
             </div>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="screen">
             <div class="quiz-header">
-                <div class="progress-bar">
-                    <div id="progressFill" class="progress-fill"></div>
+                <div class="quiz-header-left">
+                    <div class="mode-badge" id="modeBadge">PRACTICE</div>
+                    <span id="categoryBadge" class="category-badge">All Categories</span>
                 </div>
-                <div class="quiz-meta">
-                    <span id="questionNumber" class="question-counter">Question 1 of 10</span>
+                <div class="quiz-header-right">
                     <div id="timerDisplay" class="timer">
                         <span id="timerValue">45</span>s
                     </div>
+                    <button id="quitBtn" class="btn-quit">Quit</button>
                 </div>
             </div>
 
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <span id="questionNumber" class="question-counter">1/10</span>
+            </div>
+
+            <!-- Survival Mode Lives -->
+            <div id="livesDisplay" class="lives-display" style="display: none;">
+                <span class="lives-label">Lives:</span>
+                <div id="livesContainer" class="lives-container"></div>
+            </div>
+
             <div class="quiz-content">
+                <div class="difficulty-badge" id="difficultyBadge">Easy</div>
                 <h2 id="questionText" class="question-text">Loading question...</h2>
                 
                 <div id="optionsContainer" class="options-grid">
@@ -53,6 +124,9 @@
                 </div>
 
                 <div id="feedbackSection" class="feedback-section" style="display: none;">
+                    <div class="feedback-header">
+                        <span id="feedbackLabel" class="feedback-label">Correct!</span>
+                    </div>
                     <p id="feedbackText" class="feedback-text"></p>
                     <button id="nextBtn" class="btn btn-secondary">Next Question</button>
                 </div>
@@ -62,18 +136,41 @@
         <!-- Results Screen -->
         <div id="resultsScreen" class="screen">
             <div class="results-content">
-                <h1>Quiz Complete!</h1>
-                <div class="score-display">
-                    <div class="score-circle">
-                        <span id="finalScore" class="score-text">7/10</span>
-                    </div>
-                    <p id="scorePercentage" class="percentage">70%</p>
+                <div class="results-header">
+                    <h1>Quiz Complete!</h1>
+                    <div id="modeResult" class="mode-result">PRACTICE MODE</div>
                 </div>
-                <p id="scoreMessage" class="score-message">Great effort!</p>
-                
+
+                <div class="results-main">
+                    <div class="score-circle">
+                        <span id="finalScore" class="score-text">20/25</span>
+                    </div>
+                    <div class="results-details">
+                        <p id="scorePercentage" class="percentage">80%</p>
+                        <p id="scoreMessage" class="score-message">Excellent performance!</p>
+                        <div id="modeStats" class="mode-stats"></div>
+                    </div>
+                </div>
+
+                <div class="results-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Correct</span>
+                        <span id="correctCount" class="breakdown-value">20</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Wrong</span>
+                        <span id="wrongCount" class="breakdown-value">5</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Category</span>
+                        <span id="categoryResult" class="breakdown-value">Mixed</span>
+                    </div>
+                </div>
+
                 <div class="results-actions">
                     <button id="reviewBtn" class="btn btn-secondary">Review Answers</button>
-                    <button id="restartBtn" class="btn btn-primary">Restart Quiz</button>
+                    <button id="retakeBtn" class="btn btn-primary">Retake Quiz</button>
+                    <button id="homeBtn" class="btn btn-outline">Home</button>
                 </div>
             </div>
         </div>
@@ -82,7 +179,7 @@
         <div id="reviewScreen" class="screen">
             <div class="review-header">
                 <h1>Review Your Answers</h1>
-                <p id="reviewScore" class="review-score">Score: 7/10 (70%)</p>
+                <p id="reviewScore" class="review-score">Score: 20/25 (80%)</p>
             </div>
 
             <div id="reviewContainer" class="review-container">
@@ -90,8 +187,47 @@
             </div>
 
             <div class="review-actions">
-                <button id="backBtn" class="btn btn-secondary">Back to Results</button>
-                <button id="restartFromReviewBtn" class="btn btn-primary">Start New Quiz</button>
+                <button id="backToResultsBtn" class="btn btn-secondary">Back to Results</button>
+                <button id="retakeFromReviewBtn" class="btn btn-primary">Retake Quiz</button>
+            </div>
+        </div>
+
+        <!-- Stats Screen -->
+        <div id="statsScreen" class="screen">
+            <div class="stats-content">
+                <h1>Your Statistics</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-icon">📊</div>
+                        <div class="stat-card-value" id="totalAttempts">0</div>
+                        <div class="stat-card-label">Total Attempts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">🏆</div>
+                        <div class="stat-card-value" id="highestScore">0%</div>
+                        <div class="stat-card-label">Highest Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">📈</div>
+                        <div class="stat-card-value" id="averageScore">0%</div>
+                        <div class="stat-card-label">Average Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">✅</div>
+                        <div class="stat-card-value" id="totalCorrect">0</div>
+                        <div class="stat-card-label">Total Correct</div>
+                    </div>
+                </div>
+
+                <div class="stats-history">
+                    <h3>Recent Attempts</h3>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-message">No attempts yet</p>
+                    </div>
+                </div>
+
+                <button id="statsBackBtn" class="btn btn-secondary btn-full">Back to Home</button>
             </div>
         </div>
     </div>
