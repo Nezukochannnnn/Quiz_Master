@@ -1,139 +1,222 @@
 # Quiz Master 🎯
 
-A colorful and engaging quiz application built for tech hackathons. Test your technical knowledge with 10 questions, instant feedback, timer challenges, and score tracking—all without backend dependencies!
+An advanced, feature-rich quiz application built for tech hackathons and learning platforms. Master your tech knowledge with 25 comprehensive questions across 5 categories, multiple quiz modes, difficulty levels, and detailed statistics—all without backend dependencies!
 
-## ✨ Features
+## 🚀 What's New (Advanced Version)
 
-### Core Features
-- **10 Technical Questions** - General tech MCQs covering HTML, JavaScript, Data Structures, Databases, APIs, and more
-- **45-Second Timer** - Time limit per question with auto-advance on timeout
-- **Instant Feedback** - Green highlighting for correct answers, red for incorrect with explanations
-- **Score Tracking** - Real-time score display as "X/10 - Y%"
-- **Review Mode** - Complete review of all answers with correct answers and explanations
-- **localStorage Persistence** - Quiz progress saved automatically; resume from where you left off
+### Major Features
+- **25 Total Questions** - Expanded from 10 to 25 questions for comprehensive coverage
+- **5 Quiz Categories** - HTML/CSS, JavaScript, Databases, Data Structures, General Tech
+- **3 Quiz Modes**
+  - 🎓 **Practice Mode** - Learn at your own pace with 45 seconds per question
+  - ⏱️ **Timed Mode** - Race against the clock with total quiz timer
+  - 💪 **Survival Mode** - Get 3 strikes and game over!
+- **Difficulty Levels** - Easy, Medium, Hard questions (visual badges)
+- **Question Shuffling** - Random question order for each attempt
+- **Audio Feedback** - Success beeps and error tones for each answer
+- **Category Selection** - Choose which topics to include in your quiz
+- **Statistics Dashboard** - Track attempts, scores, averages, and history
+- **Animated UI** - Smooth transitions, bounce effects, and visual feedback
 
-### Design & UX
-- **Colorful & Engaging UI** - Modern gradient backgrounds with vibrant button styling
-- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
-- **Sequential Navigation** - Linear flow with no skipping; forces focused answering
-- **Visual Feedback** - Timer color changes (yellow at 15s, red at 5s) for urgency
-- **Score Messages** - Dynamic congratulatory messages based on performance (80%+, 60%+, 40%+)
+## ✨ Core Features
 
-## 🚀 Getting Started
+### Quiz Experience
+- **One question at a time** with 4 multiple choice options
+- **Instant visual feedback** - Green (correct), Red (incorrect)
+- **Explanations for every question** - Learn from every answer
+- **Progress tracking** - Visual progress bar and question counter
+- **Real-time timer** - Color-coded warnings (yellow at 15s, red at 5s)
+- **Smart auto-advance** - Auto-moves to next question on timer expiry
 
-### Prerequisites
-- Any modern web browser (Chrome, Firefox, Safari, Edge)
-- No installation, no backend, no framework required
+### Advanced Modes
 
-### Installation & Usage
+#### Practice Mode 🎓
+- No pressure learning environment
+- 45 seconds per question
+- Perfect for study sessions
+- Best for beginners
+
+#### Timed Mode ⏱️
+- Complete all selected questions in a time limit
+- Race against the global timer
+- Adds urgency and challenge
+- Great for competitive exams
+
+#### Survival Mode 💪
+- Get 3 wrong answers = Game Over
+- Lives display (❤️ 🖤)
+- High-stakes quiz experience
+- Most challenging mode
+
+### Statistics & Progress
+- **Total Attempts** - Track how many times you've taken quizzes
+- **Highest Score** - Best percentage achieved
+- **Average Score** - Performance trend over time
+- **Total Correct** - Cumulative correct answers
+- **Quiz History** - Last 5 attempts with dates and modes
+- **localStorage Persistence** - All data saved locally
+
+## 🎨 Enhanced UI/UX
+
+### Visual Improvements
+- **Gradient backgrounds** - Modern purple-violet aesthetic
+- **Category icons** - Visual representation (🎨 HTML, ⚙️ JavaScript, 💾 Database, 📊 DS, 🔧 Tech)
+- **Difficulty badges** - Easy (green), Medium (yellow), Hard (red)
+- **Smooth animations** - Fade-in, slide-in, bounce effects
+- **Responsive design** - Works perfectly on mobile, tablet, desktop
+- **Mode badges** - Clear indication of selected mode
+- **Score circle** - Large, prominent score display with gradient
+
+### Interaction Feedback
+- ✅ **Correct answer** - Green highlight with success beep
+- ❌ **Wrong answer** - Red highlight with error tone
+- 🎵 **Audio cues** - Different sounds for correct/incorrect
+- 📊 **Breakdown statistics** - Shows correct/wrong counts by category
+
+## 📚 Question Database
+
+### Categories (5 topics, 25 questions)
+
+**1. HTML/CSS (5 Q's)** 🎨
+- HTML basics and semantic tags
+- CSS styling and layout
+- Attribute usage
+
+**2. JavaScript (5 Q's)** ⚙️
+- Language fundamentals
+- Array methods and data types
+- Context and scoping
+
+**3. Databases (5 Q's)** 💾
+- Relational vs NoSQL
+- ACID principles
+- Database operations (JOIN, etc.)
+
+**4. Data Structures (5 Q's)** 📊
+- Time complexity analysis
+- Stack, Queue, Heap
+- Sorting algorithms
+
+**5. General Tech (5 Q's)** 🔧
+- APIs and REST
+- Git and Version Control
+- HTTP/HTTPS
+- DevOps concepts
+
+## 🎮 How to Use
+
+### Getting Started
 1. Clone the repository:
    ```bash
    git clone https://github.com/Nezukochannnnn/Quiz_Master.git
    ```
 
-2. Navigate to the directory:
-   ```bash
-   cd Quiz_Master
-   ```
+2. Open `index.html` in a web browser
 
-3. Open `index.html` in your browser:
-   ```bash
-   # Windows
-   start index.html
-   
-   # macOS
-   open index.html
-   
-   # Linux
-   xdg-open index.html
-   ```
+3. Click "Start Quiz"
 
-4. Click "Begin Quiz" and start answering!
+### Quiz Workflow
+1. **Home Screen** - View stats or start a new quiz
+2. **Category Selection** - Choose which topics (all selected by default)
+3. **Mode Selection** - Pick Practice, Timed, or Survival mode
+4. **Quiz** - Answer questions with real-time feedback
+5. **Results** - View final score and performance breakdown
+6. **Review** - See all questions with correct answers and explanations
+7. **Statistics** - Check your progress and history
 
-## 📋 How It Works
+## 💾 Data Storage
 
-### Quiz Flow
-1. **Start Screen** - Display quiz info and "Begin Quiz" button
-2. **Question Screen** - One question at a time with 4 options, timer, and progress bar
-3. **Answer Selection** - Click an option to see instant feedback (green/red with explanation)
-4. **Results Screen** - Final score, percentage, and performance message
-5. **Review Screen** - Detailed review of all answers with correct/incorrect highlights
+Quiz Master uses **localStorage** to persistently store:
 
-### Keyboard Features
-- Click options to select
-- "Next Question" button to proceed (auto-advances on timer expiry)
-- All navigation buttons fully accessible
+```javascript
+{
+  quizProgress: "1",                              // Current question index
+  quizAnswers: [...],                             // Array of user answers
+  quizScore: "15",                                // Final score
+  quizAttempts: [                                 // Complete history
+    {
+      mode: "practice",
+      categories: "JavaScript, Databases",
+      score: 20,
+      total: 25,
+      percentage: 80,
+      date: "6/20/2026, 2:30 PM"
+    }
+  ]
+}
+```
 
-## 💾 localStorage Management
+## 🎯 Features at a Glance
 
-The app automatically saves and restores:
-- **quizProgress** - Current question index (0-9)
-- **quizAnswers** - Array of user selections with correctness status
-- **quizScore** - Final score for results screen
+| Feature | Details |
+|---------|---------|
+| **Questions** | 25 total across 5 categories |
+| **Difficulty** | Easy, Medium, Hard |
+| **Modes** | Practice, Timed, Survival |
+| **Timer** | Per-question (Practice) or total (Timed) |
+| **Feedback** | Instant green/red + explanations |
+| **Audio** | Success beeps and error tones |
+| **Animation** | Smooth transitions and effects |
+| **Stats** | Detailed tracking and history |
+| **Responsive** | Mobile, tablet, desktop |
+| **Storage** | localStorage (no backend needed) |
+| **Framework** | Vanilla JavaScript (no dependencies) |
 
-**Auto-Restore Behavior:**
-- Reload mid-quiz → Resume from the same question
-- Reload after completion → Show results screen with previous score
-- Click "Restart Quiz" → Clear all data and start fresh
+## 🚀 Advanced Configuration
 
-## 📚 Question Topics
+### Customize Difficulty Distribution
+Edit `questionsDatabase` in `script.js` to adjust difficulty levels:
+```javascript
+{
+    difficulty: 'easy',  // Change to 'medium' or 'hard'
+    // ...
+}
+```
 
-The quiz covers 10 essential tech topics:
-1. HTML Basics
-2. Programming Languages
-3. Algorithm Complexity
-4. Data Structures
-5. CSS Styling
-6. Relational Databases
-7. APIs
-8. Sorting Algorithms
-9. Version Control (Git)
-10. NoSQL Databases
+### Adjust Timer Duration
+```javascript
+// Practice Mode: 45 seconds per question
+this.timeRemaining = 45;
 
-## 🛠️ Built With
+// Timed Mode: 60 seconds per question
+this.totalTime = this.allQuestions.length * 60;
+```
 
-- **HTML5** - Semantic markup structure
-- **CSS3** - Responsive gradient design with animations
-- **Vanilla JavaScript** - No frameworks, pure ES6+ logic
+### Modify Lives for Survival Mode
+```javascript
+this.lives = 3;  // Change to 5 or 2 for different difficulty
+```
+
+### Add Sound Effects
+Web Audio API generates beeps on:
+- Correct answer: 800Hz sine wave (0.1s)
+- Incorrect answer: 400Hz sine wave (0.2s)
+
+## 📱 Responsive Design
+
+- **Desktop** - Full features with optimal spacing
+- **Tablet** - Grid adjustments for touch
+- **Mobile** - Single-column layout with touch-friendly buttons
+- **Small screens** - Compact stats cards and full-width buttons
+
+## 🎓 Perfect For
+
+- **Tech Hackathons** - Quick, engaging quiz format
+- **Coding Interviews** - Practice interview questions
+- **Learning Platforms** - Student assessment tools
+- **Self-Study** - Track your progress over time
+- **Competitive Exams** - Use Timed and Survival modes
+- **Tech Meetups** - Fun group quizzes during events
+
+## 🔧 Technical Stack
+
+- **HTML5** - Semantic markup with organized screens
+- **CSS3** - CSS Grid, Flexbox, gradients, animations
+- **Vanilla JavaScript** - Modern ES6+ class-based architecture
+- **Web Audio API** - Beep sounds for feedback
 - **localStorage API** - Client-side data persistence
-- **No Backend** - Fully client-side application
 
-## 📁 Project Structure
-
-```
-Quiz_Master/
-├── index.html      # Main HTML structure with all UI screens
-├── styles.css      # Colorful, responsive styling
-├── script.js       # Quiz logic, timer, scoring, and localStorage
-└── README.md       # This file
-```
-
-## 🎮 Sample Gameplay
-
-### Correct Answer
-```
-Question: What does HTML stand for?
-Your Answer: Hypertext Markup Language ✓ GREEN
-Explanation: HTML stands for HyperText Markup Language...
-```
-
-### Incorrect Answer
-```
-Question: What is the time complexity of binary search?
-Your Answer: O(n²) ✗ RED
-Correct Answer: O(log n) ✓ GREEN
-Explanation: Binary search has a time complexity of O(log n)...
-```
-
-## 🎨 UI Highlights
-
-- **Gradient Background** - Purple-violet gradient for modern look
-- **Timer Display** - Changes color from gray (safe) → yellow (warning) → red (critical)
-- **Progress Bar** - Visual indication of quiz completion percentage
-- **Score Circle** - Large circular display for final score
-- **Responsive Grid** - Adapts to all screen sizes
-
-## 🔄 Browser Compatibility
+## 🛠️ Browser Support
 
 - ✅ Chrome (latest)
 - ✅ Firefox (latest)
@@ -141,46 +224,57 @@ Explanation: Binary search has a time complexity of O(log n)...
 - ✅ Edge (latest)
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 💡 Tips for Hackathon Use
+## 📊 Performance
 
-1. **Customize Questions** - Edit the `quizQuestions` array in `script.js` to add your own questions
-2. **Adjust Timer** - Change `this.timeRemaining = 45` in `script.js` to different seconds
-3. **Theme Colors** - Modify gradient colors in `styles.css` to match your hackathon branding
-4. **Deploy** - Host on GitHub Pages, Netlify, or Vercel for instant live access
+- **Fast load time** - Single static files, no dependencies
+- **Smooth animations** - 60fps CSS/JS transitions
+- **Minimal storage** - ~50KB of data in localStorage
+- **Instant feedback** - No server calls
 
-## 📝 Future Enhancements
+## 🚀 Deployment Options
 
-- Category-based questions
-- Difficulty levels
-- Leaderboard with localStorage rankings
-- Question shuffling
-- Admin panel to manage questions
-- Timed quiz mode for competitions
+Host on any of these platforms for free:
+- **GitHub Pages** - Direct deployment from repo
+- **Netlify** - Drag and drop deployment
+- **Vercel** - One-click deploy from GitHub
+- **Firebase Hosting** - Google's hosting platform
+- **Any web server** - Upload HTML/CSS/JS files
+
+## 📈 Future Enhancement Ideas
+
+- User authentication and profiles
+- Leaderboard with top scores
+- Question difficulty balancing
+- Category-specific statistics
+- Badges and achievements
+- Export quiz results as PDF
 - Dark mode toggle
-- Sound effects and animations
+- Keyboard-only navigation
+- Question reporting system
+- Admin panel for question management
+- Multiplayer mode
+- Time-based challenges
 
 ## 🤝 Contributing
 
-Feel free to fork, modify, and submit pull requests for improvements!
+Found a bug or have a feature request? Feel free to:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
-## 🎯 Perfect For
+## 🎉 Credits
 
-- Tech hackathons
-- Coding interviews prep
-- Tech knowledge assessment
-- Classroom quizzes
-- Self-learning challenges
+Built for the college tech hackathon challenge with ❤️
 
-## 📞 Support
+**Version:** 2.0 (Advanced Edition)  
+**Last Updated:** June 20, 2026  
+**Status:** Ready for Production ✅
 
-For issues, questions, or suggestions, please open an issue on GitHub.
 
 ---
 
-**Built with ❤️ for tech enthusiasts**
-
-Made for the college tech hackathon challenge.
+**Ready to master your tech knowledge? Start the quiz now!** 🚀
